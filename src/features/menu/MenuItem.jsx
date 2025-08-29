@@ -1,7 +1,8 @@
 import { formatCurrency } from "../../utilities/helpers";
-function MenuItem({ pizza }) {
-  const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
 
+function MenuItem({ pizza }) {
+  const { name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+//id removed
   return (
     <li>
       <img src={imageUrl} alt={name} />
