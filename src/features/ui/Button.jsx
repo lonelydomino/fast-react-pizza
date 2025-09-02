@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 
-const Button = ({children, disabled, to, type}) => {
+const Button = ({children, disabled, to, type, onClick}) => {
 
     const className = "inline-block rounded-full bg-yellow-400 px-4 py-3 font-semibold uppercase tracking-wide text-stone-800 transition-colors duration-300 hover:bg-yellow-300 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed"
     const base = "inline-block border-2 border-stone-300 rounded-full bg-yellow-400 font-semibold uppercase tracking-wide text-stone-800 transition-colors duration-300 hover:bg-yellow-300 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed"
@@ -11,6 +11,15 @@ const Button = ({children, disabled, to, type}) => {
         secondary: "inline-block border-2 md:px-6 py-2.5 px-4 md:py-3/5 hover:bg-stone-800 rounded-full focus:outline-none hover:text-stone-200 focus:text-stone-500 border-stone-300 border-2 <border-stone-300></border-stone-300>rounded-full bg-transparentc font-semibold uppercase tracking-wide text-stone-800 transition-colors duration-300 hover:bg-yellow-300 focus:bg-yellow-300 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-offset-2 disabled:cursor-not-allowed"
     }
     if(to) return <Link to={to} className={className}>{children}</Link>
+    
+    if(onClick)
+        return (
+            <button onClick={onClick} disabled={disabled} className={styles[type]}>
+                {children}
+            </button>
+        )
+
+
     return (
         <button disabled={disabled} className={styles[type]}>
             {children}
